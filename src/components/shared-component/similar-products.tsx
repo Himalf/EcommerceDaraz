@@ -7,7 +7,7 @@ export default function SimilarProducts({}: Props) {
   return (
     <section className="mt-10 container">
       <h3>You may also like</h3>
-      <ProductList />
+      <ProductList varient="varient2" />
     </section>
   );
 }

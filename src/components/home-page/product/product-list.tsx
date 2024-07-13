@@ -4,7 +4,7 @@ import { TProduct } from "@/types/product";
 import ProductSingleCard from "./product-single-card";
 import Link from "next/link";
 type Props = {
-  varient: string;
+  varient: "varient1" | "varient2" | "varient3";
 };
 
 export default function ProductList({ varient }: Props) {

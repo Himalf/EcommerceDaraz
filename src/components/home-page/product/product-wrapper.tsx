@@ -7,7 +7,7 @@ export default function ProductWrapper({}: Props) {
   return (
     <section className="container">
       <h2 className="text-xl font-semibold">Products</h2>
-      <ProductList />
+      <ProductList varient="varient1" />
     </section>
   );
 }
