@@ -9,7 +9,7 @@
       "name": "Clothes",
       "imageUrl": "https://media.istockphoto.com/id/178716575/photo/mobile-devices.jpg?s=612x612&w=0&k=20&c=9YyINgAbcmjfY_HZe-i8FrLUS43-qZh6Sx6raIc_9vQ="
     },
-    "stockQuantity": "17",
+    "stockQuantity": 17,
     "images": [
       "https://media.istockphoto.com/id/1458280832/photo/orange-green-modern-casual-clothes-isolated-on-white-set-of-bright-spring-female-clothing.jpg?s=2048x2048&w=is&k=20&c=BM-xZgQMTto3OMMps-qp7j4yN40ukRgas0WQYX0cRfY=",
       "https://media.istockphoto.com/id/1458280832/photo/orange-green-modern-casual-clothes-isolated-on-white-set-of-bright-spring-female-clothing.jpg?s=2048x2048&w=is&k=20&c=BM-xZgQMTto3OMMps-qp7j4yN40ukRgas0WQYX0cRfY=",
@@ -19,10 +19,26 @@
     "reviews": [
       {
         "username": "ramlal",
-        "rating": 4.5,
+        "rating": 1,
+        "message": "very good item kya maal hey yrr"
+      },
+      {
+        "username": "gari",
+        "rating": 5,
+        "message": "very good item kya maal hey yrr"
+      },
+      {
+        "username": "hari",
+        "rating": 3.5,
+        "message": "very good item kya maal hey yrr"
+      },
+      {
+        "username": "guru",
+        "rating": 1.5,
         "message": "very good item kya maal hey yrr"
       }
-    ]
+    ],
+    "avgRating": 5
   },
   {
     "id": "2",
@@ -34,17 +50,33 @@
       "name": "Clothes",
       "imageUrl": "https://media.istockphoto.com/id/178716575/photo/mobile-devices.jpg?s=612x612&w=0&k=20&c=9YyINgAbcmjfY_HZe-i8FrLUS43-qZh6Sx6raIc_9vQ="
     },
-    "stockQuantity": "17",
+    "stockQuantity": 17,
     "images": [
       "https://media.istockphoto.com/id/1316145932/photo/table-top-view-of-spicy-food.jpg?s=612x612&w=0&k=20&c=eaKRSIAoRGHMibSfahMyQS6iFADyVy1pnPdy1O5rZ98="
     ],
     "reviews": [
       {
         "username": "ramlal",
-        "rating": 4.5,
+        "rating": 5,
+        "message": "very good item kya maal hey yrr"
+      },
+      {
+        "username": "gari",
+        "rating": 5,
+        "message": "very good item kya maal hey yrr"
+      },
+      {
+        "username": "hari",
+        "rating": 3.5,
+        "message": "very good item kya maal hey yrr"
+      },
+      {
+        "username": "guru",
+        "rating": 1.5,
         "message": "very good item kya maal hey yrr"
       }
-    ]
+    ],
+    "avgRating": 4.9
   },
   {
     "id": "3",
@@ -56,7 +88,7 @@
       "name": "Clothes",
       "imageUrl": "https://media.istockphoto.com/id/178716575/photo/mobile-devices.jpg?s=612x612&w=0&k=20&c=9YyINgAbcmjfY_HZe-i8FrLUS43-qZh6Sx6raIc_9vQ="
     },
-    "stockQuantity": "17",
+    "stockQuantity": 17,
     "images": [
       "https://media.istockphoto.com/id/1458280832/photo/orange-green-modern-casual-clothes-isolated-on-white-set-of-bright-spring-female-clothing.jpg?s=2048x2048&w=is&k=20&c=BM-xZgQMTto3OMMps-qp7j4yN40ukRgas0WQYX0cRfY=",
       "https://media.istockphoto.com/id/1458280832/photo/orange-green-modern-casual-clothes-isolated-on-white-set-of-bright-spring-female-clothing.jpg?s=2048x2048&w=is&k=20&c=BM-xZgQMTto3OMMps-qp7j4yN40ukRgas0WQYX0cRfY="
@@ -67,7 +99,8 @@
         "rating": 4.5,
         "message": "very good item kya maal hey yrr"
       }
-    ]
+    ],
+    "avgRating": 4.9
   },
   {
     "id": "4",
@@ -86,9 +119,25 @@
     "reviews": [
       {
         "username": "ramlal",
-        "rating": 5.5,
+        "rating": 4.5,
+        "message": "very good item kya maal hey yrr"
+      },
+      {
+        "username": "gari",
+        "rating": 5,
+        "message": "very good item kya maal hey yrr"
+      },
+      {
+        "username": "hari",
+        "rating": 3.5,
+        "message": "very good item kya maal hey yrr"
+      },
+      {
+        "username": "guru",
+        "rating": 1.5,
         "message": "very good item kya maal hey yrr"
       }
-    ]
+    ],
+    "avgRating": 4
   }
 ]

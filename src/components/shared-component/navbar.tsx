@@ -25,10 +25,10 @@ export default function Navbar({}: Props) {
             <Link href={"/"}>Home</Link>
           </li>
           <li>
-            <Link href={"/"}>Products</Link>
+            <Link href={"/products"}>Products</Link>
           </li>
           <li>
-            <Link href={"/"}>Contact</Link>
+            <Link href={"/contact"}>Contact</Link>
           </li>
         </ul>
         <section className="flex gap-20 items-center">
@@ -46,9 +46,11 @@ export default function Navbar({}: Props) {
             <Button variant={"ghost"} className="text-white">
               Login
             </Button>
-            <Button variant="link" size={"icon"} className="text-white">
-              <FaCartPlus className="text-2xl" />{" "}
-            </Button>
+            <Link href={"/customer/cart"}>
+              <Button variant="link" size={"icon"} className="text-white">
+                <FaCartPlus className="text-2xl" />{" "}
+              </Button>
+            </Link>
           </section>
         </section>
       </nav>

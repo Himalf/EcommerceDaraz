@@ -7,8 +7,9 @@ export type TProduct={
     price:number,
     description:string,
     category:Category,
-    stockQuantity:string,
+    stockQuantity:number,
     discount:number,
     images:string[],
     reviews:TReview[],
+    avgRating:number;
 }
