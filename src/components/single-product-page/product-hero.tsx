@@ -53,7 +53,7 @@ const SingleProductHero = ({ product }: Props) => {
           <figcaption className="sr-only">{product.name}</figcaption>
         </figure>
         <section className="flex gap-2 mt-2">
-          <Carousel className="w-full max-w-sm">
+          <Carousel className="w-full max-w-sm -z-50">
             <CarouselContent className="-ml-1">
               {product.images.map((imageUrl, ind) => {
                 return (
@@ -61,14 +61,14 @@ const SingleProductHero = ({ product }: Props) => {
                     key={ind}
                     className="pl-1 md:basis-1/2 lg:basis-1/3"
                   >
-                    <div className="p-1 ">
+                    <div className="p-1">
                       <figure key={ind}>
                         <Image
                           src={imageUrl}
                           alt={product.name}
                           height={100}
                           width={100}
-                          className="rounded-md max-w-[90px]  min-h-[90px] max-h-[100px] object-cover"
+                          className="rounded-md max-w-[90px]  min-h-[90px] max-h-[100px] object-cover "
                           onMouseOver={() => {
                             setPrimaryImg(imageUrl);
                           }}

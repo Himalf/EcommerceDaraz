@@ -10,7 +10,6 @@ import SimilarProducts from "@/components/shared-component/similar-products";
 type Props = {
   params: {
     id: string;
-    varient: string;
   };
 };
 
@@ -29,7 +28,7 @@ export default function SingleProductPage({ params: { id } }: Props) {
       <SingleProductHero product={product} />
       <ProductDescription product={product} />
       <ProductReviews product={product} />
-      <SimilarProducts />
+      <SimilarProducts /> {/* Pass varient prop here */}
     </section>
   );
 }

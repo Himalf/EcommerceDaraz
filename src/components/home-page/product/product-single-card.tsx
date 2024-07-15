@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import React from "react";
 import { getDiscountedPrice } from "@/utils/getDiscountedPrice";
+import RatingStars from "@/components/shared-component/rating-stars";
 
 type Props = {
   product: TProduct;
@@ -35,7 +36,7 @@ function CardVarient1({ product }: Props) {
             alt={product.name}
             height={150}
             width={200}
-            className="object-contain rounded-lg h-[150px] w-full"
+            className="object-cover rounded-lg h-[150px] w-full"
           />
         </CardHeader>
         <CardContent className="text-sm">
@@ -63,7 +64,7 @@ function CardVarient2({ product }: Props) {
   return (
     <>
       <Card
-        className="cursor-pointer h-[300px] overflow-hidden hover:shadow-lg transition-all"
+        className="cursor-pointer min-h-[330px] overflow-hidden hover:shadow-lg transition-all"
         title={product.name}
       >
         <CardHeader>
@@ -72,13 +73,16 @@ function CardVarient2({ product }: Props) {
             alt={product.name}
             height={2000}
             width={200}
-            className="object-contain rounded-lg h-[200px] w-full"
+            className="object-cover rounded-lg h-[200px] w-full"
           />
           <CardTitle className="  text-md "></CardTitle>
         </CardHeader>
         <CardContent className="text-sm">
           <p className="line-clamp-2 font-medium leading-4 text-[10px]">
             {product.name}
+          </p>
+          <p className="text-primaryColor text-lg font-medium">
+            Rs: {discountPrice}
           </p>
           {/* <span>{product.discount}</span> */}
         </CardContent>
@@ -88,21 +92,37 @@ function CardVarient2({ product }: Props) {
 }
 function CardVarient3({ product }: Props) {
   const discountPrice = getDiscountedPrice(product.price, product.discount);
+  const deliveryOptions = ["free delivery", "shipping fee", "faster delivery"];
+  const randomDeliveryOption =
+    deliveryOptions[Math.floor(Math.random() * deliveryOptions.length)];
   const discount = product.discount.toFixed(2);
   return (
     <>
       <Card
-        className="cursor-pointer h-[300px] overflow-hidden hover:shadow-lg transition-all"
+        className="cursor-pointer min-h-[360px] overflow-hidden hover:shadow-lg transition-all container  -z-50 relative"
         title={product.name}
       >
-        <CardHeader>
-          {/* <Image
-            src={product.images[0]}
-            alt={product.name}
-            height={150}
-            width={200}
-            className="object-contain rounded-lg h-[150px] w-full"
-          /> */}
+        <CardHeader className="">
+          <div className="relative">
+            <Image
+              src={product.images[0]}
+              alt={product.name}
+              height={150}
+              width={200}
+              className="object-cover rounded-lg h-[150px] w-full "
+            />
+            <p className="border  rounded-t-md px-2 text-xs bg-[#26ABD4] text-white w-fit absolute top-0 left-0 ">
+              {" "}
+              {product.category.name}
+            </p>
+          </div>
+          <p className="flex items-center text-sm">
+            <RatingStars rating={product.avgRating} />({product.avgRating})
+          </p>
+
+          <p className="border  rounded-t-md px-2 bg-primaryColor text-white w-fit ">
+            {randomDeliveryOption}
+          </p>
           <CardTitle className="  text-md "></CardTitle>
         </CardHeader>
         <CardContent className="text-sm">

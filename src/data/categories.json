@@ -1,41 +1,38 @@
 [
-    {
-        "name":"Clothing",
-        "imageUrl":"https://media.istockphoto.com/id/1458280832/photo/orange-green-modern-casual-clothes-isolated-on-white-set-of-bright-spring-female-clothing.jpg?s=2048x2048&w=is&k=20&c=BM-xZgQMTto3OMMps-qp7j4yN40ukRgas0WQYX0cRfY="
-    },
-    {
-"name":"Food",
-"imageUrl":"https://media.istockphoto.com/id/1316145932/photo/table-top-view-of-spicy-food.jpg?s=612x612&w=0&k=20&c=eaKRSIAoRGHMibSfahMyQS6iFADyVy1pnPdy1O5rZ98="
-    },
-    {
-        "name":"Electronics",
-        "imageUrl":"https://media.istockphoto.com/id/178716575/photo/mobile-devices.jpg?s=612x612&w=0&k=20&c=9YyINgAbcmjfY_HZe-i8FrLUS43-qZh6Sx6raIc_9vQ="
-
-    },
-    {
-        "name":"Clothing",
-        "imageUrl":"https://media.istockphoto.com/id/1458280832/photo/orange-green-modern-casual-clothes-isolated-on-white-set-of-bright-spring-female-clothing.jpg?s=2048x2048&w=is&k=20&c=BM-xZgQMTto3OMMps-qp7j4yN40ukRgas0WQYX0cRfY="
-    },
-    {
-"name":"Food",
-"imageUrl":"https://media.istockphoto.com/id/1316145932/photo/table-top-view-of-spicy-food.jpg?s=612x612&w=0&k=20&c=eaKRSIAoRGHMibSfahMyQS6iFADyVy1pnPdy1O5rZ98="
-    },
-    {
-        "name":"Electronics",
-        "imageUrl":"https://media.istockphoto.com/id/178716575/photo/mobile-devices.jpg?s=612x612&w=0&k=20&c=9YyINgAbcmjfY_HZe-i8FrLUS43-qZh6Sx6raIc_9vQ="
-
-    },
-    {
-        "name":"Clothing",
-        "imageUrl":"https://media.istockphoto.com/id/1458280832/photo/orange-green-modern-casual-clothes-isolated-on-white-set-of-bright-spring-female-clothing.jpg?s=2048x2048&w=is&k=20&c=BM-xZgQMTto3OMMps-qp7j4yN40ukRgas0WQYX0cRfY="
-    },
-    {
-"name":"Food",
-"imageUrl":"https://media.istockphoto.com/id/1316145932/photo/table-top-view-of-spicy-food.jpg?s=612x612&w=0&k=20&c=eaKRSIAoRGHMibSfahMyQS6iFADyVy1pnPdy1O5rZ98="
-    },
-    {
-        "name":"Electronics",
-        "imageUrl":"https://media.istockphoto.com/id/178716575/photo/mobile-devices.jpg?s=612x612&w=0&k=20&c=9YyINgAbcmjfY_HZe-i8FrLUS43-qZh6Sx6raIc_9vQ="
-
-    }
+  {
+    "name": "Clothing",
+    "imageUrl": "https://media.istockphoto.com/id/1458280832/photo/orange-green-modern-casual-clothes-isolated-on-white-set-of-bright-spring-female-clothing.jpg?s=2048x2048&w=is&k=20&c=BM-xZgQMTto3OMMps-qp7j4yN40ukRgas0WQYX0cRfY="
+  },
+  {
+    "name": "Food",
+    "imageUrl": "https://media.istockphoto.com/id/1316145932/photo/table-top-view-of-spicy-food.jpg?s=612x612&w=0&k=20&c=eaKRSIAoRGHMibSfahMyQS6iFADyVy1pnPdy1O5rZ98="
+  },
+  {
+    "name": "Electronics",
+    "imageUrl": "https://media.istockphoto.com/id/178716575/photo/mobile-devices.jpg?s=612x612&w=0&k=20&c=9YyINgAbcmjfY_HZe-i8FrLUS43-qZh6Sx6raIc_9vQ="
+  },
+  {
+    "name": "Clothing",
+    "imageUrl": "https://media.istockphoto.com/id/1458280832/photo/orange-green-modern-casual-clothes-isolated-on-white-set-of-bright-spring-female-clothing.jpg?s=2048x2048&w=is&k=20&c=BM-xZgQMTto3OMMps-qp7j4yN40ukRgas0WQYX0cRfY="
+  },
+  {
+    "name": "Food",
+    "imageUrl": "https://media.istockphoto.com/id/1316145932/photo/table-top-view-of-spicy-food.jpg?s=612x612&w=0&k=20&c=eaKRSIAoRGHMibSfahMyQS6iFADyVy1pnPdy1O5rZ98="
+  },
+  {
+    "name": "Electronics",
+    "imageUrl": "https://media.istockphoto.com/id/178716575/photo/mobile-devices.jpg?s=612x612&w=0&k=20&c=9YyINgAbcmjfY_HZe-i8FrLUS43-qZh6Sx6raIc_9vQ="
+  },
+  {
+    "name": "Clothing",
+    "imageUrl": "https://media.istockphoto.com/id/1458280832/photo/orange-green-modern-casual-clothes-isolated-on-white-set-of-bright-spring-female-clothing.jpg?s=2048x2048&w=is&k=20&c=BM-xZgQMTto3OMMps-qp7j4yN40ukRgas0WQYX0cRfY="
+  },
+  {
+    "name": "Food",
+    "imageUrl": "https://media.istockphoto.com/id/1316145932/photo/table-top-view-of-spicy-food.jpg?s=612x612&w=0&k=20&c=eaKRSIAoRGHMibSfahMyQS6iFADyVy1pnPdy1O5rZ98="
+  },
+  {
+    "name": "Electronics",
+    "imageUrl": "https://media.istockphoto.com/id/178716575/photo/mobile-devices.jpg?s=612x612&w=0&k=20&c=9YyINgAbcmjfY_HZe-i8FrLUS43-qZh6Sx6raIc_9vQ="
+  }
 ]

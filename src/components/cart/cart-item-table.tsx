@@ -75,8 +75,9 @@ export default function CartItemTable({}: Props) {
                   <MdDeleteOutline />
                 </section>
               </TableCell>
-              <TableCell>
-                <QuantityInput stockQuantity={cartItem.quantity} />
+              <TableCell className="text-center">
+                {/* <QuantityInput stockQuantity={cartItem.quantity} /> */}
+                {cartItem.quantity}
               </TableCell>
 
               {/* <TableCell className="text-right"></TableCell> */}

@@ -43,14 +43,14 @@ export default function Navbar({}: Props) {
             <Button variant={"secondary"} className="text-primaryColor">
               Signup
             </Button>
-            <Button variant={"ghost"} className="text-white">
-              Login
+            <Button variant={"ghost"} className="text-white" asChild>
+              <Link href={"/api/auth/signin"}> Login</Link>
             </Button>
-            <Link href={"/customer/cart"}>
-              <Button variant="link" size={"icon"} className="text-white">
-                <FaCartPlus className="text-2xl" />{" "}
-              </Button>
-            </Link>
+            <Button variant="link" size={"icon"} className="text-white" asChild>
+              <Link href={"/customer/cart"}>
+                <FaCartPlus className="text-2xl" />
+              </Link>
+            </Button>
           </section>
         </section>
       </nav>

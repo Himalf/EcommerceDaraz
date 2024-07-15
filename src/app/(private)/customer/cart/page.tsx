@@ -2,6 +2,7 @@ import CartItemTable from "@/components/cart/cart-item-table";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
+import Link from "next/link";
 import React from "react";
 
 type Props = {};
@@ -21,7 +22,11 @@ export default function CartPage({}: Props) {
           <OrderSummary />
         </section>
       </section>
-      {/* <section></section> */}
+      <section>
+        <Button asChild>
+          <Link href={"/api/auth/signout"}>Logout</Link>
+        </Button>
+      </section>
     </main>
   );
 }
