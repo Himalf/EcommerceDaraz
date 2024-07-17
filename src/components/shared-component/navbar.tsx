@@ -40,8 +40,8 @@ export default function Navbar({}: Props) {
             />
           </section>
           <section className="space-x-3 items-center flex">
-            <Button variant={"secondary"} className="text-primaryColor">
-              Signup
+            <Button variant={"secondary"} className="text-primaryColor" asChild>
+              <Link href={"/auth/signup"}>Signup</Link>
             </Button>
             <Button variant={"ghost"} className="text-white" asChild>
               <Link href={"/api/auth/signin"}> Login</Link>
