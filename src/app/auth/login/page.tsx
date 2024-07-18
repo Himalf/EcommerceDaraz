@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useCallback } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 
@@ -14,7 +14,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { toast } from "@/components/ui/use-toast";
+import { ToastContainer, toast } from "react-toastify";
 import { signIn } from "next-auth/react";
 import {
   signInFormDefaultValues,
@@ -22,6 +22,12 @@ import {
   signInFormSchema,
   TSignInFormSchema,
 } from "@/models/sign-in.model";
+import "react-toastify/dist/ReactToastify.css";
+import { redirect, usePathname } from "next/navigation";
+import { useRouter } from "next/router";
+import { url } from "inspector";
+import { string } from "zod";
+
 type Props = {
   callbackUrl: string;
 };
@@ -31,13 +37,23 @@ export default function SignIn(props: Props) {
     resolver: zodResolver(signInFormSchema),
     defaultValues: signInFormDefaultValues,
   });
-  function onSubmit(values: TSignInFormSchema) {
-    signIn("credentials", {
-      email: values.email,
-      password: values.password,
-      redirect: true,
-      callbackUrl: props.callbackUrl ?? "http://localhost:3000/customer/cart",
-    });
+  async function onSubmit(values: TSignInFormSchema) {
+    try {
+      await signIn("credentials", {
+        ...values,
+        redirect: true,
+        callbackUrl: `${window.location.origin}`,
+      }).then((res) => {
+        if (res?.status === 200) {
+          toast.success("Login Successfull");
+        } else {
+          toast.error("Email or Password does not match!");
+        }
+      });
+      // toast.success("login Successfull");
+    } catch (error) {
+      toast.error("Cannot login");
+    }
   }
   return (
     <main className="flex justify-center items-center min-h-screen bg-gray-100">
@@ -59,6 +75,7 @@ export default function SignIn(props: Props) {
                       <Input
                         placeholder={formField.placeholder}
                         required={formField.required}
+                        type={formField.type}
                         {...field}
                       />
                     </FormControl>
@@ -68,11 +85,12 @@ export default function SignIn(props: Props) {
               />
             ))}
 
+            <ToastContainer />
             <Button
               type="submit"
               className="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
             >
-              Submit
+              Login
             </Button>
           </form>
         </Form>

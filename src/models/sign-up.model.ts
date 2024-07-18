@@ -1,4 +1,4 @@
-import { EInputType, TFormField } from "@/types/form-fiels";
+import { EInputType, TFormField } from "@/types/form-field";
 import { z } from "zod";
 export const signUpFormSchema = z
   .object({

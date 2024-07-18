@@ -1,4 +1,4 @@
-import { EInputType, TFormField } from "@/types/form-fiels";
+import { EInputType, TFormField } from "@/types/form-field";
 import { z } from "zod";
 export const signInFormSchema = z.object({
   email: z.string().email({ message: "Invalid email address" }),

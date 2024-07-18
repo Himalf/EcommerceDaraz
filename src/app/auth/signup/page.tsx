@@ -49,6 +49,7 @@ export default function SignIn() {
                     <FormControl>
                       <Input
                         placeholder={formField.placeholder}
+                        type={formField.type}
                         required={formField.required}
                         {...field}
                       />
@@ -63,7 +64,7 @@ export default function SignIn() {
               type="submit"
               className="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
             >
-              Submit
+              Signup
             </Button>
           </form>
         </Form>

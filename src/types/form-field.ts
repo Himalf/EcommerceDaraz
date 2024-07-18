@@ -2,14 +2,13 @@ export enum EInputType {
   TEXT = "text",
   PASSWORD = "password",
   EMAIL = "email",
-  FILE = "file",
   CHECKBOX = "checkbox",
   RADIO = "radio",
   DATE = "date",
-  TEL = "tel",
   TEXTAREA = "textarea",
-  SELECT = "select",
+  NUMBER = "number",
 }
+
 type TInputType =
   | "text"
   | "email"
@@ -17,18 +16,16 @@ type TInputType =
   | "file"
   | "checkbox"
   | "radio"
-  | "date";
+  | "date"
+  | "number";
+
 export type TFormField<T> = (
   | {
       type: TInputType;
     }
   | {
-      name: keyof T;
-      required: boolean;
-    }
-  | {
-      required: boolean;
       type: "select";
+
       option: {
         label: string;
         value: string;
@@ -39,4 +36,5 @@ export type TFormField<T> = (
   placeholder?: string;
   name: keyof T;
   required: boolean;
+  description: string;
 };
