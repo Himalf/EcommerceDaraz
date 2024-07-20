@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { FormEvent } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 
@@ -20,6 +20,7 @@ import {
   signUpFormSchema,
   TSignUpFormSchema,
 } from "@/models/sign-up.model";
+import { json } from "stream/consumers";
 type Props = {};
 
 export default function SignIn() {
@@ -27,8 +28,29 @@ export default function SignIn() {
     resolver: zodResolver(signUpFormSchema),
     defaultValues: signUpFormDefaultValues,
   });
-  function onSubmit(values: TSignUpFormSchema) {
-    console.log(values);
+  async function onSubmit(
+    values: TSignUpFormSchema,
+    event: FormEvent<HTMLFormElement>
+  ) {
+    event.preventDefault();
+    try {
+      const response = await fetch("/api/registers", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(values),
+      });
+
+      const data = await response.json();
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+
+      console.log(data.message); // Handle success
+    } catch (error) {
+      console.error("There was a problem with the fetch operation:", error);
+    }
   }
   return (
     <main className="flex justify-center items-center min-h-screen bg-gray-100">

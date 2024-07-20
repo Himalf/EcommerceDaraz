@@ -4,11 +4,11 @@ services:
   postgres:
     image: postgres
     restart: always
-    container_name: ecommerce-development-postgres
+    container_name: my_ecommerce
     ports:
       - 5432:5432
     env_file:
-      - .env.local
+      - .env
     volumes:
       - postgres:/data/postgres
 
