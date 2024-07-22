@@ -17,8 +17,7 @@ export default function ProductReviews({ product }: Props) {
           <ReviewsList product={product} />
         ) : (
           <p className="text-center text-muted-foreground py-2 bg-slate-100">
-            {" "}
-            "This product has no reviews"
+            This product has no reviews
           </p>
         )}
       </div>

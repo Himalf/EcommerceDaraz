@@ -8,42 +8,28 @@ export const authOptions: NextAuthOptions = {
       credentials: {
         email: {
           label: "Email",
-          placeholder: "Enter your email",
           type: "email",
+          placeholder: "Enter your email",
         },
         password: {
           label: "Password",
-          placeholder: "Enter your password",
           type: "password",
+          placeholder: "Enter your password",
         },
       },
-      async authorize(credentials) {
-        const users = [
-          {
-            id: "1",
-            email: "himal@gmail.com",
-            password: "12345678",
-          },
-        ];
+      async authorize(credentials, req) {
+        const res = await fetch(`${process.env.NEXTAUTH_URL}/api/logins`, {
+          method: "POST",
+          body: JSON.stringify(credentials),
+          headers: { "Content-Type": "application/json" },
+        });
+        const user = await res.json();
 
-        const foundUser = users.find(
-          (user) => user.email === credentials?.email
-        );
-
-        if (!foundUser) {
-          console.log("No user found with email:", credentials?.email);
+        if (res.status !== 200 || !user) {
           return null;
         }
 
-        const isPwdMatch = foundUser.password === credentials?.password;
-
-        if (!isPwdMatch) {
-          console.log("Password does not match for user:", foundUser.email);
-          return null;
-        }
-
-        console.log("User authenticated successfully:", foundUser);
-        return foundUser;
+        return user;
       },
     }),
   ],

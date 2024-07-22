@@ -1,5 +1,5 @@
 "use client";
-import React, { useCallback } from "react";
+import React from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 
@@ -23,34 +23,32 @@ import {
   TSignInFormSchema,
 } from "@/models/sign-in.model";
 import "react-toastify/dist/ReactToastify.css";
-import { redirect, usePathname } from "next/navigation";
-import { useRouter } from "next/router";
-import { url } from "inspector";
-import { string } from "zod";
+import { useRouter } from "next/navigation";
+import { setInterval } from "timers";
 
 type Props = {
   callbackUrl: string;
 };
 
 export default function SignIn(props: Props) {
+  const router = useRouter();
   const form = useForm<TSignInFormSchema>({
     resolver: zodResolver(signInFormSchema),
     defaultValues: signInFormDefaultValues,
   });
   async function onSubmit(values: TSignInFormSchema) {
     try {
-      await signIn("credentials", {
+      const res = await signIn("credentials", {
         ...values,
-        redirect: true,
-        callbackUrl: `${window.location.origin}`,
-      }).then((res) => {
-        if (res?.status === 200) {
-          toast.success("Login Successfull");
-        } else {
-          toast.error("Email or Password does not match!");
-        }
+        redirect: false,
+        callbackUrl: props.callbackUrl,
       });
-      // toast.success("login Successfull");
+      if (res?.ok) {
+        toast.success("login successfull");
+        router.push(`/customer/cart`);
+      } else {
+        toast.error("email or password does not match");
+      }
     } catch (error) {
       toast.error("Cannot login");
     }
