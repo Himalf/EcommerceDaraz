@@ -10,6 +10,14 @@ const nextConfig = {
         protocol: "https",
         hostname: "icms-image.slatic.net",
       },
+      {
+        protocol: "https",
+        hostname: "plus.unsplash.com",
+      },
+      {
+        protocol: "https",
+        hostname: "images.unsplash.com",
+      },
     ],
   },
 };
