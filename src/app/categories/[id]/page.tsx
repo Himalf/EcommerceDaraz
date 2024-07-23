@@ -14,7 +14,7 @@ type Props = {
 
 export default function CategoryNames({ params }: Props) {
   const filtercategoryData = ProductData.filter((product) => {
-    return product.category.name === params.id;
+    return product.category.name.toLowerCase() === params.id.toLowerCase();
   });
   return (
     <main className="container grid ">

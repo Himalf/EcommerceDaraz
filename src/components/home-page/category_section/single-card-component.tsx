@@ -13,10 +13,10 @@ export default function SingleCardComponent({ category }: Props) {
         <CardHeader>
           <Image
             src={category.imageUrl}
-            alt="imagesdbj"
+            alt="imagesCategory"
             height={100}
             width={100}
-            className="w-full  h-[100px] rounded-lg object-contain"
+            className="w-full  h-[100px] rounded-lg object-cover"
           />
         </CardHeader>
         <CardContent>

@@ -11,6 +11,7 @@ export async function POST(req: NextRequest) {
     data: {
       name: data?.name,
       imageUrl: data?.imageUrl,
+      products: data?.products,
     },
   });
   return NextResponse.json({

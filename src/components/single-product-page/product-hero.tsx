@@ -1,8 +1,7 @@
-"use client";
 import { TProduct } from "@/types/product";
 import { getDiscountedPrice } from "@/utils/getDiscountedPrice";
 import Image from "next/image";
-import React, { useState } from "react";
+import React from "react";
 // import { FaPlus, FaMinus } from "react-icons/fa6";
 import { Button } from "../ui/button";
 
@@ -21,7 +20,7 @@ type Props = {
 };
 
 const SingleProductHero = ({ product }: Props) => {
-  const [primaryImage, setPrimaryImg] = useState(product.images[0]);
+  // const [primaryImage, setPrimaryImg] = useState(product.images[0]);
   // const primaryImage = product.images[0];
   const discountPrice = getDiscountedPrice(product.price, product.discount);
   // const renderStar = (rating: number) => {
@@ -43,7 +42,7 @@ const SingleProductHero = ({ product }: Props) => {
       <section>
         <figure className="">
           <Image
-            src={primaryImage}
+            src={product.images[0]}
             alt={product.name}
             height={330}
             width={330}
@@ -69,9 +68,9 @@ const SingleProductHero = ({ product }: Props) => {
                           height={100}
                           width={100}
                           className="rounded-md max-w-[90px]  min-h-[90px] max-h-[100px] object-cover "
-                          onMouseOver={() => {
-                            setPrimaryImg(imageUrl);
-                          }}
+                          // onMouseOver={() => {
+                          //   setPrimaryImg(imageUrl);
+                          // }}
                         />
                         <figcaption className="sr-only">
                           {product.name}

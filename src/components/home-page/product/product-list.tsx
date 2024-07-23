@@ -1,4 +1,5 @@
-import React from "react";
+"use client";
+import React, { useEffect, useState } from "react";
 import productData from "@/data/products.json";
 import { TProduct } from "@/types/product";
 import ProductSingleCard from "./product-single-card";
@@ -8,6 +9,15 @@ type Props = {
 };
 
 export default function ProductList({ varient }: Props) {
+  const [data, setData] = useState<TProduct[]>([]);
+  const fetchData = async () => {
+    const res = await fetch("/api/products");
+    const newData = await res.json();
+    setData(newData);
+  };
+  useEffect(() => {
+    fetchData();
+  }, []);
   const getGridClasses = (varient: string) => {
     switch (varient) {
       case "varient1":
@@ -22,7 +32,7 @@ export default function ProductList({ varient }: Props) {
   return (
     <main>
       <section className={getGridClasses(varient)}>
-        {(productData as TProduct[]).map((product, index) => (
+        {data.map((product, index) => (
           <Link href={`/products/${product.id}`} key={index}>
             <ProductSingleCard product={product} varient={varient} />
           </Link>

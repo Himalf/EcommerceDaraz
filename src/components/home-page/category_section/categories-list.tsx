@@ -10,7 +10,6 @@ type Props = {};
 
 export default function CategoriesList({}: Props) {
   const [data, setData] = useState<Category[]>([]);
-  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     async function fetchData() {
@@ -19,7 +18,7 @@ export default function CategoriesList({}: Props) {
         const data = await response.json();
         setData(data);
       } catch (error) {
-        setError("Failed to fetch categories");
+        console.log(error);
       }
     }
 
@@ -38,10 +37,6 @@ export default function CategoriesList({}: Props) {
     },
     [searchParams]
   );
-
-  if (error) {
-    return <div>{error}</div>;
-  }
 
   return (
     <section className="grid lg:grid-cols-8 md:grid-cols-5 grid-cols-2 gap-5 p-3">

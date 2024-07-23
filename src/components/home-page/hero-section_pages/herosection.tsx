@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   Carousel,
   CarouselContent,
@@ -12,12 +12,21 @@ import categoriesData from "@/data/categories.json";
 import { Category } from "@/types/category";
 import Image from "next/image";
 import Autoplay from "embla-carousel-autoplay";
+import { getPlugin } from "@/utils/getPlugin";
 type Props = {};
 
 export default function HeroSection({}: Props) {
-  const plugin = React.useRef(
-    Autoplay({ delay: 3000, stopOnInteraction: false })
-  );
+  const [data, setData] = useState<Category[]>([]);
+  const fetchData = async () => {
+    const res = await fetch("/api/categories");
+    const category = await res.json();
+    setData(category);
+  };
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const plugin = getPlugin();
   return (
     <div className="justify-center container items-center p-5 ">
       <Carousel
@@ -27,7 +36,7 @@ export default function HeroSection({}: Props) {
         onMouseLeave={plugin.current.reset}
       >
         <CarouselContent>
-          {(categoriesData as Category[]).map((category, index) => {
+          {data.map((category, index) => {
             return (
               <CarouselItem key={index}>
                 <div className="p-1">
