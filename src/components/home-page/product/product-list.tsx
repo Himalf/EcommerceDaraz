@@ -33,7 +33,7 @@ export default function ProductList({ varient }: Props) {
     <main>
       <section className={getGridClasses(varient)}>
         {data.map((product, index) => (
-          <Link href={`/products/${product.id}`} key={index}>
+          <Link href={`/products/${product.id}`} key={product.id}>
             <ProductSingleCard product={product} varient={varient} />
           </Link>
         ))}

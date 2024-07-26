@@ -13,14 +13,16 @@ type Props = {
   };
 };
 
-export default function SingleProductPage({ params: { id } }: Props) {
-  const product = (productData as TProduct[]).find(
+export default async function SingleProductPage({ params: { id } }: Props) {
+  const res = await fetch(`${process.env.NEXTAUTH_URL}/api/products/${id}`);
+  const data = await res.json();
+
+  const product = (data as TProduct[]).find(
     (singleProduct) => singleProduct.id === id
   );
 
   if (!product) {
-    notFound();
-    return null; // Ensure to return something in case of not found
+    return notFound();
   }
 
   return (
@@ -28,7 +30,7 @@ export default function SingleProductPage({ params: { id } }: Props) {
       <SingleProductHero product={product} />
       <ProductDescription product={product} />
       <ProductReviews product={product} />
-      <SimilarProducts /> {/* Pass varient prop here */}
+      <SimilarProducts />
     </section>
   );
 }
