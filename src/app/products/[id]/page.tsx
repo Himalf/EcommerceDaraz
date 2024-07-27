@@ -1,5 +1,4 @@
 import React from "react";
-import productData from "@/data/products.json";
 import { notFound } from "next/navigation";
 import { TProduct } from "@/types/product";
 import SingleProductHero from "@/components/single-product-page/product-hero";
@@ -13,13 +12,21 @@ type Props = {
   };
 };
 
-export default async function SingleProductPage({ params: { id } }: Props) {
-  const res = await fetch(`${process.env.NEXTAUTH_URL}/api/products/${id}`);
-  const data = await res.json();
+export default async function SingleProductPage({ params }: Props) {
+  let product: TProduct | null = null;
 
-  const product = (data as TProduct[]).find(
-    (singleProduct) => singleProduct.id === id
-  );
+  try {
+    const res = await fetch(
+      `${process.env.NEXTAUTH_URL}/api/products/${params.id}`
+    );
+    if (!res.ok) {
+      throw new Error("Failed to fetch product");
+    }
+    product = await res.json();
+  } catch (error) {
+    console.error("Error fetching product:", error);
+    return notFound();
+  }
 
   if (!product) {
     return notFound();

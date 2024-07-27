@@ -1,40 +1,49 @@
-import { useParams } from "next/navigation";
 import React from "react";
-import ProductData from "@/data/products.json";
 import { TProduct } from "@/types/product";
-import ProductList from "@/components/home-page/product/product-list";
-import SingleProductPage from "@/app/products/[id]/page";
 import ProductSingleCard from "@/components/home-page/product/product-single-card";
 import Link from "next/link";
+
 type Props = {
   params: {
     id: string;
   };
 };
 
-export default function CategoryNames({ params }: Props) {
-  const filtercategoryData = ProductData.filter((product) => {
+export default async function CategoryNames({ params }: Props) {
+  let productData: TProduct[] = [];
+
+  try {
+    const res = await fetch(
+      `${process.env.NEXTAUTH_URL}/api/products?category=${params.id}`
+    );
+    if (!res.ok) {
+      throw new Error("Failed to fetch products");
+    }
+    productData = await res.json();
+  } catch (error) {
+    console.error("Error fetching products:", error);
+  }
+
+  const filtercategoryData = productData.filter((product) => {
     return product.category.name.toLowerCase() === params.id.toLowerCase();
   });
+
   return (
-    <main className="container grid ">
-      {filtercategoryData.length > 0}
+    <main className="container grid">
       <section>
         <h2 className="font-medium text-xl my-2">
-          List of Product from {params.id} category
+          List of Products from {params.id} category
         </h2>
       </section>
-      <section className="grid grid-cols-5">
+      <section className="grid grid-cols-5 gap-4">
         {filtercategoryData.length > 0 ? (
-          (filtercategoryData as TProduct[]).map((product, ind) => {
-            return (
-              <Link href={`/products/${product.id}`} key={ind}>
-                <ProductSingleCard product={product} varient="varient3" />
-              </Link>
-            );
-          })
+          filtercategoryData.map((product, ind) => (
+            <Link href={`/products/${product.id}`} key={ind}>
+              <ProductSingleCard product={product} varient="varient3" />
+            </Link>
+          ))
         ) : (
-          <p>No items Found for {params.id}</p>
+          <p>No items found for {params.id}</p>
         )}
       </section>
     </main>

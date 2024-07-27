@@ -121,7 +121,7 @@ function CardVarient3({ product }: Props) {
           </p>
 
           <p className="border  rounded-t-md px-2 bg-primaryColor text-white w-fit ">
-            {randomDeliveryOption}
+            {/* {randomDeliveryOption} */}
           </p>
           <CardTitle className="  text-md "></CardTitle>
         </CardHeader>

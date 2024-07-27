@@ -8,7 +8,7 @@ import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 type Props = {};
 
-export default function Categories({}: Props) {
+export default async function Categories({}: Props) {
   const searchParams = useSearchParams();
   const search = searchParams.get("categories");
   const filterCategoryData = productData.filter((product) => {
