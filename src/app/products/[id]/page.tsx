@@ -13,8 +13,7 @@ type Props = {
 };
 
 export default async function SingleProductPage({ params }: Props) {
-  let product: TProduct | null = null;
-
+  let product = null;
   try {
     const res = await fetch(
       `${process.env.NEXTAUTH_URL}/api/products/${params.id}`
@@ -34,7 +33,7 @@ export default async function SingleProductPage({ params }: Props) {
 
   return (
     <section>
-      <SingleProductHero product={product} />
+      <SingleProductHero product={product.data as TProduct} />
       <ProductDescription product={product} />
       <ProductReviews product={product} />
       <SimilarProducts />

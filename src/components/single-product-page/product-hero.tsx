@@ -20,6 +20,7 @@ type Props = {
 };
 
 const SingleProductHero = ({ product }: Props) => {
+  // console.log(product);
   // const [primaryImage, setPrimaryImg] = useState(product.images[0]);
   // const primaryImage = product.images[0];
   const discountPrice = getDiscountedPrice(product.price, product.discount);
@@ -46,6 +47,7 @@ const SingleProductHero = ({ product }: Props) => {
             alt={product.name}
             height={330}
             width={330}
+            loading="lazy"
             className="max-w-full max-h-[400px] min-h-[330px] object-cover rounded-lg"
             // onChange={primaryImg}
           />
@@ -67,6 +69,7 @@ const SingleProductHero = ({ product }: Props) => {
                           alt={product.name}
                           height={100}
                           width={100}
+                          loading="lazy"
                           className="rounded-md max-w-[90px]  min-h-[90px] max-h-[100px] object-cover "
                           // onMouseOver={() => {
                           //   setPrimaryImg(imageUrl);
@@ -95,7 +98,7 @@ const SingleProductHero = ({ product }: Props) => {
             </p>
             <div className="flex gap-0 items-center">
               <p>{product.avgRating} ratings</p>
-              <p>({product.reviews.length})</p>
+              {/* <p>({product.reviews})</p> */}
             </div>
           </div>
           <p className="text-primaryColor text-xl font-semibold">
