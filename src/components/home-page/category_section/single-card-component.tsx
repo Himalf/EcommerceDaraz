@@ -7,6 +7,7 @@ type Props = {
 };
 
 export default function SingleCardComponent({ category }: Props) {
+  console.log(category, "fjhdek");
   return (
     <div>
       <Card className="cursor-pointer">

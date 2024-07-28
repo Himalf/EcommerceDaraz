@@ -5,6 +5,7 @@ export async function GET(req: NextRequest) {
   const data = await prisma.product.findMany({
     include: {
       category: true,
+      reviews: true,
     },
   });
   return NextResponse.json(data);

@@ -34,8 +34,8 @@ export default async function SingleProductPage({ params }: Props) {
   return (
     <section>
       <SingleProductHero product={product.data as TProduct} />
-      <ProductDescription product={product} />
-      <ProductReviews product={product} />
+      <ProductDescription product={product.data as TProduct} />
+      <ProductReviews product={product.data as TProduct} />
       <SimilarProducts />
     </section>
   );

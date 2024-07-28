@@ -3,7 +3,7 @@ import React from "react";
 import RatingStars from "../shared-component/rating-stars";
 
 type Props = {
-  product: Pick<TProduct, "reviews">;
+  product: TProduct;
 };
 
 export default function ProductReviews({ product }: Props) {

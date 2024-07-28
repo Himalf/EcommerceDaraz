@@ -117,11 +117,12 @@ function CardVarient3({ product }: Props) {
             </p>
           </div>
           <p className="flex items-center text-sm">
-            <RatingStars rating={product.avgRating} />({product.avgRating})
+            <RatingStars rating={product.avgRating} />({product.reviews?.length}
+            )
           </p>
 
           <p className="border  rounded-t-md px-2 bg-primaryColor text-white w-fit ">
-            {/* {randomDeliveryOption} */}
+            {randomDeliveryOption}
           </p>
           <CardTitle className="  text-md "></CardTitle>
         </CardHeader>

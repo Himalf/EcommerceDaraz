@@ -20,24 +20,7 @@ type Props = {
 };
 
 const SingleProductHero = ({ product }: Props) => {
-  // console.log(product);
-  // const [primaryImage, setPrimaryImg] = useState(product.images[0]);
-  // const primaryImage = product.images[0];
   const discountPrice = getDiscountedPrice(product.price, product.discount);
-  // const renderStar = (rating: number) => {
-  //   const stars = [];
-  //   for (let i = 1; i <= 5; i++) {
-  //     if (rating >= i) {
-  //       stars.push(<FaStar key={i} className="text-yellow-400" />);
-  //     } else if (rating >= i - 0.5) {
-  //       stars.push(<FaStarHalfAlt key={i} className="text-yellow-400" />);
-  //     } else {
-  //       stars.push(<FaStar key={i} className="text-gray-300" />);
-  //     }
-  //   }
-  //   return stars;
-  // };
-
   return (
     <main className="grid grid-cols-2 container justify-items-center mt-5 pt-5 ">
       <section>
@@ -98,7 +81,8 @@ const SingleProductHero = ({ product }: Props) => {
             </p>
             <div className="flex gap-0 items-center">
               <p>{product.avgRating} ratings</p>
-              {/* <p>({product.reviews})</p> */}
+
+              <p>({product.reviews?.length})</p>
             </div>
           </div>
           <p className="text-primaryColor text-xl font-semibold">
