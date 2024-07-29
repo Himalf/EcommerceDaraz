@@ -30,7 +30,7 @@ export default function HeroSection({}: Props) {
   return (
     <div className="justify-center container items-center p-5 ">
       <Carousel
-        className="-z-50"
+        className=""
         plugins={[plugin.current]}
         onMouseEnter={plugin.current.stop}
         onMouseLeave={plugin.current.reset}

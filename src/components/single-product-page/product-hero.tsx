@@ -37,7 +37,12 @@ const SingleProductHero = ({ product }: Props) => {
           <figcaption className="sr-only">{product.name}</figcaption>
         </figure>
         <section className="flex gap-2 mt-2">
-          <Carousel className="w-full max-w-sm -z-50">
+          <Carousel
+            className="w-full max-w-sm"
+            opts={{
+              align: "start",
+            }}
+          >
             <CarouselContent className="-ml-1">
               {product.images.map((imageUrl, ind) => {
                 return (

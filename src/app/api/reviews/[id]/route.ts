@@ -9,24 +9,14 @@ export async function GET(
   if (isNaN(id)) {
     return new NextResponse("please provide a valid id", { status: 400 });
   }
-
-  const foundProduct = await prisma.product.findFirst({
+  const foundReview = await prisma.review.findFirst({
     where: { id: id },
     include: {
-      reviews: {
-        select: {
-          username: true,
-          message: true,
-          rating: true,
-        },
-      },
+      product: true,
     },
   });
-
-  if (!foundProduct) {
+  if (!foundReview) {
     return new NextResponse("no product found for this id", { status: 404 });
   }
-
-  console.log(foundProduct, "single product found");
-  return NextResponse.json({ data: foundProduct });
+  return NextResponse.json({ data: foundReview, message: "review get" });
 }

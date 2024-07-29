@@ -8,7 +8,7 @@ type Props = {};
 
 export default function Navbar({}: Props) {
   return (
-    <div className="bg-primaryColor sticky top-0 left-0 ">
+    <div className="bg-primaryColor sticky top-0 left-0 z-50">
       <nav className="flex items-center justify-between gap-10 py-2  border-b  container text-white">
         <section className="text-2xl font-bold text-white">
           <Image

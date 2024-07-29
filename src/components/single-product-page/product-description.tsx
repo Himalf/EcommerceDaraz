@@ -11,7 +11,10 @@ export default function ProductDescription({ product }: Props) {
       <h3 className="font-semibold text-xl mb-5">
         You can read about this product
       </h3>
-      <p className="leading-7">{product.description}</p>
+      <p
+        className="leading-7"
+        dangerouslySetInnerHTML={{ __html: product.description }}
+      />
     </section>
   );
 }
