@@ -1,4 +1,5 @@
-import React from "react";
+"use client";
+import React, { useEffect, useState } from "react";
 import { Checkbox } from "@/components/ui/checkbox";
 import {
   Table,
@@ -18,10 +19,20 @@ import { CiHeart } from "react-icons/ci";
 import { MdDeleteOutline } from "react-icons/md";
 import QuantityInput from "../single-product-page/quantity-input";
 import Link from "next/link";
+import { TProduct } from "@/types/product";
 
 type Props = {};
 
 export default function CartItemTable({}: Props) {
+  const [cartData, setCartData] = useState<TProduct[]>([]);
+  useEffect(() => {
+    const fetchData = async () => {
+      const res = await fetch(`/api/products`);
+      const data = await res.json();
+      setCartData(data);
+    };
+    fetchData();
+  }, []);
   return (
     <Table className="">
       <TableCaption>A list of your recent invoices.</TableCaption>
@@ -36,7 +47,7 @@ export default function CartItemTable({}: Props) {
         </TableRow>
       </TableHeader>
       <TableBody>
-        {(cartItemsData as TCartItem[]).map((cartItem, ind) => {
+        {cartData.map((cartItem, ind) => {
           return (
             <TableRow key={ind} className="cursor-pointer">
               <TableCell>
@@ -44,32 +55,27 @@ export default function CartItemTable({}: Props) {
               </TableCell>
               <TableCell className="font-medium">
                 <div className="flex gap-3">
-                  <figure className="max-h-96 max-w-96">
+                  <figure className=" min-h-[90px] max-h-[90px] max-w-28 min-w-28">
                     <Image
-                      src={cartItem.product.images[0]}
-                      alt={cartItem.product.name}
-                      height={150}
-                      width={150}
+                      src={cartItem.images[0]}
+                      alt={cartItem.name}
+                      height={100}
+                      width={100}
                       className="object-cover w-full h-full"
                     />
                   </figure>
                   <p className="line-clamp-3 text-lg leading-6">
-                    {cartItem.product.name}
+                    {cartItem.name}
                   </p>
                 </div>
               </TableCell>
               <TableCell className="text-primaryColor">
                 Rs.
-                {getDiscountedPrice(
-                  cartItem.product.price,
-                  cartItem.product.discount
-                )}
+                {getDiscountedPrice(cartItem.price, cartItem.discount)}
                 <p className="line-through text-muted-foreground">
-                  Rs.{cartItem.product.price}
+                  Rs.{cartItem.price}
                 </p>
-                <p className="text-muted-foreground">
-                  -{cartItem.product.discount}%
-                </p>
+                <p className="text-muted-foreground">-{cartItem.discount}%</p>
                 <section className="flex items-center text-2xl text-muted-foreground gap-x-2 mt-2">
                   <CiHeart />
                   <MdDeleteOutline />
@@ -77,7 +83,7 @@ export default function CartItemTable({}: Props) {
               </TableCell>
               <TableCell className="text-center">
                 {/* <QuantityInput stockQuantity={cartItem.quantity} /> */}
-                {cartItem.quantity}
+                {cartItem.stockQuantity}
               </TableCell>
 
               {/* <TableCell className="text-right"></TableCell> */}
