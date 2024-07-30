@@ -15,7 +15,10 @@ export default async function CategoriesList({}: Props) {
     <section className="grid lg:grid-cols-8 md:grid-cols-5 grid-cols-2 gap-5 p-3">
       {data.length > 0 ? (
         (data as Category[]).map((category, index) => (
-          <Link href={`/categories/${category.name}`} key={index}>
+          <Link
+            href={`/categories/${encodeURIComponent(category.name)}`}
+            key={index}
+          >
             <div className="">
               <SingleCardComponent category={category} />
             </div>

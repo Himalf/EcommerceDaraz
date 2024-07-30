@@ -14,7 +14,9 @@ export default async function CategoryNames({ params }: Props) {
 
   try {
     const res = await fetch(
-      `${process.env.NEXTAUTH_URL}/api/products?category=${params.id}`,
+      `${process.env.NEXTAUTH_URL}/api/products?category=${encodeURIComponent(
+        params.id
+      )}`,
       { cache: "no-store" }
     );
     if (!res.ok) {
@@ -24,16 +26,16 @@ export default async function CategoryNames({ params }: Props) {
   } catch (error) {
     console.error("Error fetching products:", error);
   }
-
+  const normalizedParamId = decodeURIComponent(params.id.trim().toLowerCase());
   const filtercategoryData = productData.filter((product) => {
-    return product.category.name.toLowerCase() === params.id.toLowerCase();
+    return product.category.name.toLowerCase() === normalizedParamId;
   });
 
   return (
     <main className="container grid">
       <section>
         <h2 className="font-medium text-xl my-2">
-          List of Products from {params.id} category
+          List of Products from {decodeURIComponent(params.id)} category
         </h2>
       </section>
       <section className="grid grid-cols-5 gap-4">

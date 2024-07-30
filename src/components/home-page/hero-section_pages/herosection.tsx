@@ -47,7 +47,7 @@ export default function HeroSection({}: Props) {
                         width={0}
                         height={0}
                         sizes="100vw"
-                        className="h-full w-full object-cover"
+                        className="h-full w-full object-contain"
                         alt="New image"
                       />
                     </CardContent>
