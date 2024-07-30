@@ -1,5 +1,4 @@
-"use client";
-import React, { useEffect, useState } from "react";
+import React from "react";
 // import productData from "@/data/products.json";
 import { TProduct } from "@/types/product";
 import ProductSingleCard from "./product-single-card";
@@ -8,16 +7,11 @@ type Props = {
   varient: "varient1" | "varient2" | "varient3";
 };
 
-export default function ProductList({ varient }: Props) {
-  const [data, setData] = useState<TProduct[]>([]);
-  useEffect(() => {
-    const fetchData = async () => {
-      const res = await fetch(`/api/products`);
-      const data = await res.json();
-      setData(data);
-    };
-    fetchData();
-  }, []);
+export default async function ProductList({ varient }: Props) {
+  const res = await fetch(`${process.env.NEXTAUTH_URL}/api/products`, {
+    cache: "no-store",
+  });
+  const data = await res.json();
   const getGridClasses = (varient: string) => {
     switch (varient) {
       case "varient1":
@@ -32,7 +26,7 @@ export default function ProductList({ varient }: Props) {
   return (
     <main>
       <section className={getGridClasses(varient)}>
-        {data.map((product, index) => (
+        {(data as TProduct[]).map((product, index) => (
           <Link href={`/products/${product.id}`} key={product.id}>
             <ProductSingleCard product={product} varient={varient} />
           </Link>

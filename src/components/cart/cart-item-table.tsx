@@ -1,5 +1,4 @@
-"use client";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Checkbox } from "@/components/ui/checkbox";
 import {
   Table,
@@ -23,16 +22,11 @@ import { TProduct } from "@/types/product";
 
 type Props = {};
 
-export default function CartItemTable({}: Props) {
-  const [cartData, setCartData] = useState<TProduct[]>([]);
-  useEffect(() => {
-    const fetchData = async () => {
-      const res = await fetch(`/api/products`);
-      const data = await res.json();
-      setCartData(data);
-    };
-    fetchData();
-  }, []);
+export default async function CartItemTable({}: Props) {
+  const res = await fetch(`${process.env.NEXTAUTH_URL}/api/products`, {
+    cache: "no-store",
+  });
+  const cartData = await res.json();
   return (
     <Table className="">
       <TableCaption>A list of your recent invoices.</TableCaption>
@@ -47,7 +41,7 @@ export default function CartItemTable({}: Props) {
         </TableRow>
       </TableHeader>
       <TableBody>
-        {cartData.map((cartItem, ind) => {
+        {(cartData as TProduct[]).map((cartItem, ind) => {
           return (
             <TableRow key={ind} className="cursor-pointer">
               <TableCell>

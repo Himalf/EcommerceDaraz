@@ -2,6 +2,7 @@ import { Category } from "./category";
 import { TReview } from "./review";
 
 export type TProduct = {
+  data: TProduct;
   id: string;
   name: string;
   price: number;

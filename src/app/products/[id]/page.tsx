@@ -1,5 +1,4 @@
-"use client";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { TProduct } from "@/types/product";
 import SingleProductHero from "@/components/single-product-page/product-hero";
 import ProductDescription from "@/components/single-product-page/product-description";
@@ -11,38 +10,12 @@ type Props = {
     id: string;
   };
 };
-
-const SingleProductPage: React.FC<Props> = ({ params }) => {
-  const [product, setProduct] = useState<TProduct | null>(null);
-  const [error, setError] = useState<string | null>(null);
-  const { id } = params;
-
-  useEffect(() => {
-    const fetchProduct = async () => {
-      try {
-        const res = await fetch(`/api/products/${id}`);
-        if (!res.ok) {
-          throw new Error("Failed to fetch product");
-        }
-        const data = await res.json();
-        setProduct(data);
-      } catch (error) {
-        console.error("Error fetching product:", error);
-        setError("Failed to fetch product");
-      }
-    };
-
-    fetchProduct();
-  }, [id]);
-
-  if (error) {
-    return <div>{error}</div>;
-  }
-
-  if (!product) {
-    return <div>Loading...</div>;
-  }
-
+export default async function SingleProductPage({ params }: Props) {
+  const res = await fetch(
+    `${process.env.NEXTAUTH_URL}/api/products/${params.id}`,
+    { cache: "no-store" }
+  );
+  const product = await res.json();
   return (
     <section>
       <SingleProductHero product={product.data as TProduct} />
@@ -51,6 +24,4 @@ const SingleProductPage: React.FC<Props> = ({ params }) => {
       <SimilarProducts />
     </section>
   );
-};
-
-export default SingleProductPage;
+}

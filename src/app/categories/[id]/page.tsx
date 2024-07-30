@@ -14,7 +14,8 @@ export default async function CategoryNames({ params }: Props) {
 
   try {
     const res = await fetch(
-      `${process.env.NEXTAUTH_URL}/api/products?category=${params.id}`
+      `${process.env.NEXTAUTH_URL}/api/products?category=${params.id}`,
+      { cache: "no-store" }
     );
     if (!res.ok) {
       throw new Error("Failed to fetch products");
